@@ -22,9 +22,15 @@ Tables: Tables has a many-to-many with Restaurants, forming the Employees associ
 Reservations:
 Customers have a one to many relationship with reservations, additionally reservations have a one to many with tables. One reservation is required for a group containing many customers such as a family or a company social event. Also, one table will be the home of a night of memories to several reservations because there are multiple time windows that a reservation can be created for a specific table. 
 
+Events: The relationship between events to customers is a one-to-many relationship. When a nonprofit reserves the restaurant space to host an event, there can be many customers, but only to that one specific event since customers unfortunately cannot be at two places at once. 
 
+Customers: Customers has a one to many relationship with Reservations and Orders. A particular customer can make many reservations and can order as much food an drink as they please. Restaurant has a one-to-many relationship with Customers as many customers can go to only one restaurant due to region constraints. Similarly, Events and Catering have one-to-many relationships with Customers as events and catering events are both one-time, unique occasions with many guests. 
 
+Catering: There is a many to many relationship between catering and orders creating the associative entity, catering menus. When an organization, for example, requests catering services, which many requests can be put in, there are many orders that can be put in to suffice the need. Consequently, a specific ordering menu is offered to give these catering orders a taste of what our restaurant chain is all about. A quick side note is that we do not offer the same dishes on the catering menu as we do on our regular in-house menu because of our marketing strategy. We want people to explore all of the flavorful possibilities our restaurant offers, so to encourage them to come into our restaurant and try the inhouse menu, we only give them a glimpse of what the in house menu offers.
 
+Catering Menu: There is the associate entity between orders and catering, birthing Catering Menu. This offers a unique journey for the catered audience’s taste buds to experience. 
+
+Orders: Orders has a many-to-many relationship with catering, forming the CateringMenu associated entity. It is also the associated entity between customer and menu. Customers can order as many menu items and as many times as they please.
 
 
 
