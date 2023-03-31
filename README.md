@@ -109,6 +109,15 @@ FROM Customers
 JOIN Orders ON Customers.customerID = Orders.customerID
 JOIN Menu ON Orders.menuID = Menu.menuID;
 
+# Query 9
+#This query is useful because it allows the manager to see how many reservations we had on a specific day, who it is for, and where they are sitting. By knowing this we can prepare for what we think the specific amount of guests we will have, how we could contact them if we need to, and information we could possibly need to give them such as what table they will be seated at. We did this by listing out the customer name, customer phone, number of guests on the reservations, and tableID. We then had to join customers, reservations, and tables together and say the specific date we were looking for.
+
+SELECT resNumOfGuests, customerPhone, customerName, tableID
+FROM Customers
+JOIN Reservations ON Reservations.customerID = Customers.customerID
+JOIN Tables ON Reservations.reservationID = Tables.reservationID
+WHERE resDate = '2022-07-10';
+
 
 
 
