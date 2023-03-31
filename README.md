@@ -53,11 +53,12 @@ JOIN Menu ON Orders.menuID = Menu.menuID;
 
 # Query 2
 #This query allows us to know what ingredients go into each of the catering menu items. This is because the catering menu is created by the customer. Therefore, by being able to see what ingredients they have requested in the past, we can prepare for possible future catering needs. We did this by having the name of the meal and the ingredients in the select statement, and then ordered by 
-<img width="296" alt="Q2" src="https://user-images.githubusercontent.com/129557979/229248721-43d51313-c804-4e6d-b1a4-ce70fcfe4acd.png">
 
 SELECT cmIngredients, cmItemName
 FROM CateringMenu
 ORDER BY cmIngredients DESC;
+
+<img width="296" alt="Q2" src="https://user-images.githubusercontent.com/129557979/229248721-43d51313-c804-4e6d-b1a4-ce70fcfe4acd.png">
 
 # Query 3
 #This query shows each of menu items and the maximum amount of each item that was purchased. This allows us to see which of the items are the most popular and which ones we should really focus on in the future. We did this by having a maximum function in the select statement with orderQuantity and also listed the item name. In order to get the query to work we had to join together the Orders table and the Menu table and grouped it by the item name.
@@ -66,6 +67,7 @@ SELECT MAX(orderQuantity), menuItemName
 FROM Orders
 JOIN Menu ON Orders.menuID = Menu.menuID
 GROUP BY menuItemName; 
+
 <img width="296" alt="Q3" src="https://user-images.githubusercontent.com/129557979/229248732-65548c80-fdcf-41ef-adf2-3e51d7b75be5.png">
 
 # Query 4
@@ -85,6 +87,7 @@ SELECT COUNT(*), menuItemName
 FROM Menu
 WHERE menuPrice > (SELECT AVG(menuPrice) FROM Menu)
 GROUP BY menuItemName;
+
 <img width="261" alt="Q5" src="https://user-images.githubusercontent.com/129557979/229248744-17404d3c-7bd9-4d09-b324-571f2d38d0e6.png">
 
 # Query 6 
@@ -96,6 +99,7 @@ JOIN Orders ON Employees.orderID = Orders.orderID
 JOIN Menu ON Orders.menuID = Menu.menuID
 GROUP BY Employees.employeeID
 ORDER BY SUM(menuPrice*orderQuantity) DESC;
+
 <img width="213" alt="Q6" src="https://user-images.githubusercontent.com/129557979/229248754-7627607f-5c34-406c-8cd1-ee1dee861787.png">
 
 # Query 7
@@ -109,6 +113,7 @@ SELECT
     COUNT(CASE WHEN cateringSpecialRequirements REGEXP("Kosher") THEN cateringSpecialRequirements END) AS "Allergic",
 	COUNT(CASE WHEN cateringSpecialRequirements NOT REGEXP("Peanut Free|Gluten Free|Vegan|Vegetarian|Kosher") THEN cateringSpecialRequirements END) AS "Not Allergic"
 FROM Catering;
+
 <img width="294" alt="Q7" src="https://user-images.githubusercontent.com/129557979/229248759-17ceb9f4-c234-4967-b500-bc0e91fb5f51.png">
 
 # Query 8
@@ -118,6 +123,7 @@ SELECT menuItemName, CONCAT(ROUND(100*(orderQuantity)/(SELECT COUNT(orderQuantit
 FROM Customers 
 JOIN Orders ON Customers.customerID = Orders.customerID
 JOIN Menu ON Orders.menuID = Menu.menuID;
+
 <img width="296" alt="Q8" src="https://user-images.githubusercontent.com/129557979/229248772-721cabe4-e5f8-4dc2-af87-1b9448c3eb22.png">
 
 # Query 9
@@ -128,6 +134,7 @@ FROM Customers
 JOIN Reservations ON Reservations.customerID = Customers.customerID
 JOIN Tables ON Reservations.reservationID = Tables.reservationID
 WHERE resDate = '2022-07-10';
+
 <img width="290" alt="Q9" src="https://user-images.githubusercontent.com/129557979/229248786-3fb03ad3-0934-4f80-a179-88d1023008e2.png">
 
 # Query 10
