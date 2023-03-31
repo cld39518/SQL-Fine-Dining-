@@ -53,7 +53,7 @@ FROM Customers
 JOIN Restaurant ON Customers.restaurantID = Restaurant.rId
 WHERE EXISTS (SELECT restaurantID FROM Customers);
 
-#Query 5
+**#Query 5**
 #This query tells us how many of each item is greater than the average price of the items on our menu. By doing this we can figure out which items are our more expensive items, and we can focus on trying to make those as high quality as we can. In order to find this out we counted how many total menu items there are on the menu. Then we did a subquery to find what the average menu price is and compared that to all of the menu items to find which items cost more than the average price.
 
 SELECT COUNT(*), menuItemName
@@ -61,7 +61,7 @@ FROM Menu
 WHERE menuPrice > (SELECT AVG(menuPrice) FROM Menu)
 GROUP BY menuItemName;
 
-#Query 6 
+**#Query 6 **
 #This query allows us to tell the amount of food that each employee sold. This is useful because from this we can tell how useful each employee is and how much money they are bringing in. We did this by getting the sum of the menu price multiplied by the quantity of the items they ordered. We then joined the employees table, orders table, and the menu table together so we could get the menu item and the price, combined with the order that was place, and which employee was involved.
 
 SELECT employeeName, SUM(menuPrice*orderQuantity) AS 'Bill Price'
@@ -71,7 +71,7 @@ JOIN Menu ON Orders.menuID = Menu.menuID
 GROUP BY Employees.employeeID
 ORDER BY SUM(menuPrice*orderQuantity) DESC;
 
-#Query 7
+**#Query 7**
 #This query shows how many of each customer who catered had special requirements, and what those requirements were. This allows us to know what meals we should be ready to make in the future. Not all customers will necessarily have what we are serving and we need to be prepared to serve their needs. We were able to do this by using case when and regular expression statements.
 SELECT 
 	COUNT(CASE WHEN cateringSpecialRequirements REGEXP("Peanut Free") THEN cateringSpecialRequirements END) AS "Allergic", 
@@ -82,7 +82,7 @@ SELECT
 	COUNT(CASE WHEN cateringSpecialRequirements NOT REGEXP("Peanut Free|Gluten Free|Vegan|Vegetarian|Kosher") THEN cateringSpecialRequirements END) AS "Not Allergic"
 FROM Catering;
 
-#Query 8
+**#Query 8**
 #This query is used to figure out which menu items are ordered the most. It is useful to know this first of all to know the popularity of each item but also for the sake of recommendations. We can tell the customers which items are the most popular. We did this by putting the quantity ordered by each person over the total count of all of the quantities ordered.
 SELECT menuItemName, CONCAT(ROUND(100*(orderQuantity)/(SELECT COUNT(orderQuantity) FROM Orders),2),("%")) AS 'Percent Ordered'
 FROM Customers 
