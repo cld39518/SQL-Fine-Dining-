@@ -40,6 +40,8 @@ There is the associate entity between orders and catering, birthing Catering Men
 # Orders: 
 Orders has a many-to-many relationship with catering, forming the CateringMenu associated entity. It is also the associated entity between customer and menu. Customers can order as many menu items and as many times as they please.
 
+<img width="1033" alt="Screenshot 2023-03-31 at 6 44 03 PM" src="https://user-images.githubusercontent.com/129543675/229245540-2df1275f-e18a-4086-bb9c-b55273d232ed.png">
+
 # Query 1
 #This query is used to determine the bill total for a particular guess. The manager could use this query to find out how much certain guests are willing to spend when they come to the restaurant
 
