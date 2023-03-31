@@ -34,7 +34,7 @@ The relationship between events to customers is a one-to-many relationship. When
 # Catering:
 There is a many to many relationship between catering and orders creating the associative entity, catering menus. When an organization, for example, requests catering services, which many requests can be put in, there are many orders that can be put in to suffice the need. Consequently, a specific ordering menu is offered to give these catering orders a taste of what our restaurant chain is all about. A quick side note is that we do not offer the same dishes on the catering menu as we do on our regular in-house menu because of our marketing strategy. We want people to explore all of the flavorful possibilities our restaurant offers, so to encourage them to come into our restaurant and try the inhouse menu, we only give them a glimpse of what the in house menu offers.
 
-# Catering Menu:
+# CateringMenu:
 There is the associate entity between orders and catering, birthing Catering Menu. This offers a unique journey for the catered audience’s taste buds to experience. 
 
 # Orders: 
