@@ -45,6 +45,7 @@ Orders has a many-to-many relationship with catering, forming the CateringMenu a
 # Query 1
 #This query is used to determine the bill total for a particular guess. The manager could use this query to find out how much certain guests are willing to spend when they come to the restaurant
 
+CREATE PROCEDURE TP_Q0()
 SELECT CONCAT(("$"),orderQuantity*menuPrice), customerName
 FROM Customers
 JOIN Orders ON Orders.customerID = Customers.customerID
@@ -53,6 +54,7 @@ JOIN Menu ON Orders.menuID = Menu.menuID;
 # Query 2
 #This query allows us to know what ingredients go into each of the catering menu items. This is because the catering menu is created by the customer. Therefore, by being able to see what ingredients they have requested in the past, we can prepare for possible future catering needs. We did this by having the name of the meal and the ingredients in the select statement, and then ordered by 
 
+CREATE PROCEDURE TP_Q2()
 SELECT cmIngredients, cmItemName
 FROM CateringMenu
 ORDER BY cmIngredients DESC;
@@ -60,6 +62,7 @@ ORDER BY cmIngredients DESC;
 # Query 3
 #This query shows each of menu items and the maximum amount of each item that was purchased. This allows us to see which of the items are the most popular and which ones we should really focus on in the future. We did this by having a maximum function in the select statement with orderQuantity and also listed the item name. In order to get the query to work we had to join together the Orders table and the Menu table and grouped it by the item name.
 
+CREATE PROCEDURE TP_Q3()
 SELECT MAX(orderQuantity), menuItemName
 FROM Orders
 JOIN Menu ON Orders.menuID = Menu.menuID
@@ -68,6 +71,7 @@ GROUP BY menuItemName;
 # Query 4
 #These are all of the customers that ate at the restaurant. Not all of our customers are from just the restaurant so it is useful to know which customers are soley eating at the restaurant rather than through catering or events. We did that by selecting the customers name so we know the names of which specific customers are eating there. Then we joined customers to restaurant and did an exist statement for restaurantID. If restaurantID does exist then that means that they ate at the restaurant.
 
+CREATE PROCEDURE TP_Q4()
 SELECT customerName
 FROM Customers
 JOIN Restaurant ON Customers.restaurantID = Restaurant.rId
@@ -76,6 +80,7 @@ WHERE EXISTS (SELECT restaurantID FROM Customers);
 # Query 5
 #This query tells us how many of each item is greater than the average price of the items on our menu. By doing this we can figure out which items are our more expensive items, and we can focus on trying to make those as high quality as we can. In order to find this out we counted how many total menu items there are on the menu. Then we did a subquery to find what the average menu price is and compared that to all of the menu items to find which items cost more than the average price.
 
+CREATE PROCEDURE TP_Q5()
 SELECT COUNT(*), menuItemName
 FROM Menu
 WHERE menuPrice > (SELECT AVG(menuPrice) FROM Menu)
@@ -84,6 +89,7 @@ GROUP BY menuItemName;
 # Query 6 
 #This query allows us to tell the amount of food that each employee sold. This is useful because from this we can tell how useful each employee is and how much money they are bringing in. We did this by getting the sum of the menu price multiplied by the quantity of the items they ordered. We then joined the employees table, orders table, and the menu table together so we could get the menu item and the price, combined with the order that was place, and which employee was involved.
 
+CREATE PROCEDURE TP_Q6()
 SELECT employeeName, SUM(menuPrice*orderQuantity) AS 'Bill Price'
 FROM Employees
 JOIN Orders ON Employees.orderID = Orders.orderID
@@ -94,6 +100,7 @@ ORDER BY SUM(menuPrice*orderQuantity) DESC;
 # Query 7
 #This query shows how many of each customer who catered had special requirements, and what those requirements were. This allows us to know what meals we should be ready to make in the future. Not all customers will necessarily have what we are serving and we need to be prepared to serve their needs. We were able to do this by using case when and regular expression statements.
 
+CREATE PROCEDURE TP_Q7()
 SELECT 
 	COUNT(CASE WHEN cateringSpecialRequirements REGEXP("Peanut Free") THEN cateringSpecialRequirements END) AS "Allergic", 
     COUNT(CASE WHEN cateringSpecialRequirements REGEXP("Gluten Free") THEN cateringSpecialRequirements END) AS "Allergic", 
@@ -106,6 +113,7 @@ FROM Catering;
 # Query 8
 #This query is used to figure out which menu items are ordered the most. It is useful to know this first of all to know the popularity of each item but also for the sake of recommendations. We can tell the customers which items are the most popular. We did this by putting the quantity ordered by each person over the total count of all of the quantities ordered.
 
+CREATE PROCEDURE TP_Q8()
 SELECT menuItemName, CONCAT(ROUND(100*(orderQuantity)/(SELECT COUNT(orderQuantity) FROM Orders),2),("%")) AS 'Percent Ordered'
 FROM Customers 
 JOIN Orders ON Customers.customerID = Orders.customerID
@@ -114,6 +122,7 @@ JOIN Menu ON Orders.menuID = Menu.menuID;
 # Query 9
 #This query is useful because it allows the manager to see how many reservations we had on a specific day, who it is for, and where they are sitting. By knowing this we can prepare for what we think the specific amount of guests we will have, how we could contact them if we need to, and information we could possibly need to give them such as what table they will be seated at. We did this by listing out the customer name, customer phone, number of guests on the reservations, and tableID. We then had to join customers, reservations, and tables together and say the specific date we were looking for.
 
+CREATE PROCEDURE TP_Q9()
 SELECT resNumOfGuests, customerPhone, customerName, tableID
 FROM Customers
 JOIN Reservations ON Reservations.customerID = Customers.customerID
@@ -123,12 +132,25 @@ WHERE resDate = '2022-07-10';
 # Query 10
 #This query allows us to figure out how many employees we have in each position. By knowing this we can figure out how well we operate with a specific amount of employees. If we are not operating as well as we should and see that one group does not have enough employees and hire more. We did this by using case when statements for each of the different employee types.
 
+CREATE PROCEDURE TP_Q10()
 SELECT 
 COUNT(CASE WHEN employeeTitle REGEXP("Chef") THEN employeeTitle END) AS "Chef", 
 COUNT(CASE WHEN employeeTitle REGEXP("Waiter") THEN employeeTitle END) AS "Waiter", 
 COUNT(CASE WHEN employeeTitle REGEXP("Host") THEN employeeTitle END) AS "Host",
 COUNT(CASE WHEN employeeTitle NOT REGEXP("Chef|Waiter|Host") THEN employeeTitle END) AS "Unknown"
 FROM Employees;
+
+CALL TP_Q0;
+CALL TP_Q2;
+CALL TP_Q3;
+CALL TP_Q4;
+CALL TP_Q5;
+CALL TP_Q6;
+CALL TP_Q7;
+CALL TP_Q8;
+CALL TP_Q9;
+CALL TP_Q10;
+
 
 # Total Database Code
 
