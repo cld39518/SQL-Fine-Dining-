@@ -26,43 +26,49 @@ There is the associate entity between orders and catering, birthing Catering Men
 There is a one to many relationship between Restaurants and Employees as stated above. There is a one to many relationship between orders and employees. One order is handled by many employees, such as the waiter/waitress, the chef, and the host/hostess.
 There is a one to many relationship between tables and employees. For each table there are several employees responsible for satisfying the needs of the specific table. The employees required to provide excellent service to a table include waiter, food runner, and table busser. 
 
-<img width="371" alt="D3" src="https://user-images.githubusercontent.com/129557979/229249907-dfe5914d-b84b-485f-ba0f-0495137faf7d.png">
+<img width="323" alt="D4" src="https://user-images.githubusercontent.com/129557979/229250023-09cea3ea-3eb3-46e4-9e31-5e0abf25afae.png">
+
 
 
 # Events: 
 The relationship between events to customers is a one-to-many relationship. When a nonprofit reserves the restaurant space to host an event, there can be many customers, but only to that one specific event since customers unfortunately cannot be at two places at once. 
 
-<img width="323" alt="D4" src="https://user-images.githubusercontent.com/129557979/229249911-b4624b81-d6c5-48b8-adf2-a460baa52bad.png">
+<img width="338" alt="D5" src="https://user-images.githubusercontent.com/129557979/229250028-aab605b2-f62c-46a5-8454-4dee325630b3.png">
+
 
 
 # Menu: 
 There is a many to many relationship between menu and customers forming a one to many relationship between menu and orders forming the associative entity Orders. There are different menus unique to each of the six restaurants, likewise there are different customers that will reap the benefits of the options listed on each restaurant's specific menu. Additionally, because each restaurant has their own menu, there can be many orders from each of the restaurants specific and individual menu.
 
-<img width="338" alt="D5" src="https://user-images.githubusercontent.com/129557979/229249918-99becc71-a431-4c03-a0be-97f0dd1dec35.png">
+<img width="337" alt="D6" src="https://user-images.githubusercontent.com/129557979/229250036-442472fc-c8b2-4d34-b1f2-f47d19c1e4cf.png">
+
 
 
 # Orders: 
 Orders has a many-to-many relationship with catering, forming the CateringMenu associated entity. It is also the associated entity between customer and menu. Customers can order as many menu items and as many times as they please.
 
-<img width="337" alt="D6" src="https://user-images.githubusercontent.com/129557979/229249928-6f5247e9-fd71-47aa-94e0-ddfa46045248.png">
+<img width="368" alt="D7" src="https://user-images.githubusercontent.com/129557979/229250043-d0ab376e-8261-4ce0-895f-5b7135a6dd7c.png">
+
 
 
 # Reservations:
 Customers have a one to many relationship with reservations, additionally reservations have a one to many with tables. One reservation is required for a group containing many customers such as a family or a company social event. Also, one table will be the home of a night of memories to several reservations because there are multiple time windows that a reservation can be created for a specific table. 
 
-<img width="368" alt="D7" src="https://user-images.githubusercontent.com/129557979/229249938-4ddaf243-a3a2-41b3-8efc-7e68013180aa.png">
+<img width="329" alt="D8" src="https://user-images.githubusercontent.com/129557979/229250048-b629dd69-bd1c-4efd-9570-623475ac3b7a.png">
 
 
 # Restaurant:
 We have six different restaurant locations across different regions, each having a name, address, phone number, and website. The Restaurant table has a one to many relationship with Customers and a many-to-many relationship with Tables. This forms a one-to-many relationship with the Employees table. To prevent long commutes to the restaurant, each restaurant requires a set number of employees to be staffed exclusively at one of the six restaurants. 
 
-<img width="329" alt="D8" src="https://user-images.githubusercontent.com/129557979/229249943-b37d47c9-574a-4723-a674-8d91ac08450b.png">
+<img width="329" alt="D9" src="https://user-images.githubusercontent.com/129557979/229250055-6bb00503-8a9a-4d25-a7a1-d2148c8a7c8d.png">
+
 
 
 # Tables:
 Tables has a many-to-many with Restaurants, forming the Employees associated entity. One table has many employees operating on it such as the hosts/hostesses, waitor/waitresses, and the chefs making the meals being prepared for the table. Reservations have a one-to-many relationship with tables. There is only one unique reservation per table but that reservation can happen at any time, and some of our guests have repeat reservations where they can set the same reservation every week at the same table through our Loyalty Program.
 
-<img width="1033" alt="Screenshot 2023-03-31 at 6 44 03 PM" src="https://user-images.githubusercontent.com/129543675/229245540-2df1275f-e18a-4086-bb9c-b55273d232ed.png">
+<img width="331" alt="D10" src="https://user-images.githubusercontent.com/129557979/229250063-d3e8c570-f56c-4ad7-866c-fa1f1a7a1a26.png">
+
 
 # Query 1
 #This query is used to determine the bill total for a particular guess. The manager could use this query to find out how much certain guests are willing to spend when they come to the restaurant
