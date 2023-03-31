@@ -1,4 +1,4 @@
-# SQL-Fine-Dining-
+# SQL Fine Dining Project
 SQL fine dining database project
 
 # Members
