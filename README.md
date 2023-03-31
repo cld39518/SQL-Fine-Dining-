@@ -78,6 +78,8 @@ SELECT CONCAT(("$"),orderQuantity*menuPrice), customerName
 FROM Customers
 JOIN Orders ON Orders.customerID = Customers.customerID
 JOIN Menu ON Orders.menuID = Menu.menuID;
+CALL TP_Q0;
+
 
 <img width="298" alt="Q1" src="https://user-images.githubusercontent.com/129557979/229248485-b73d8034-fd48-4e44-a871-f8e129ebd02d.png">
 
@@ -88,6 +90,8 @@ PROCEDURE CALL TP_Q2()
 SELECT cmIngredients, cmItemName
 FROM CateringMenu
 ORDER BY cmIngredients DESC;
+CALL TP_Q2;
+
 
 <img width="296" alt="Q2" src="https://user-images.githubusercontent.com/129557979/229248721-43d51313-c804-4e6d-b1a4-ce70fcfe4acd.png">
 
@@ -99,6 +103,8 @@ SELECT MAX(orderQuantity), menuItemName
 FROM Orders
 JOIN Menu ON Orders.menuID = Menu.menuID
 GROUP BY menuItemName; 
+CALL TP_Q3;
+
 
 <img width="296" alt="Q3" src="https://user-images.githubusercontent.com/129557979/229248732-65548c80-fdcf-41ef-adf2-3e51d7b75be5.png">
 
@@ -110,6 +116,8 @@ SELECT customerName
 FROM Customers
 JOIN Restaurant ON Customers.restaurantID = Restaurant.rId
 WHERE EXISTS (SELECT restaurantID FROM Customers);
+CALL TP_Q4;
+
 
 <img width="191" alt="Q4" src="https://user-images.githubusercontent.com/129557979/229248742-d12834cd-dd3b-48e4-87e6-d272ec173207.png">
 
@@ -121,6 +129,8 @@ SELECT COUNT(*), menuItemName
 FROM Menu
 WHERE menuPrice > (SELECT AVG(menuPrice) FROM Menu)
 GROUP BY menuItemName;
+CALL TP_Q5;
+
 
 <img width="261" alt="Q5" src="https://user-images.githubusercontent.com/129557979/229248744-17404d3c-7bd9-4d09-b324-571f2d38d0e6.png">
 
@@ -134,6 +144,8 @@ JOIN Orders ON Employees.orderID = Orders.orderID
 JOIN Menu ON Orders.menuID = Menu.menuID
 GROUP BY Employees.employeeID
 ORDER BY SUM(menuPrice*orderQuantity) DESC;
+CALL TP_Q6;
+
 
 <img width="213" alt="Q6" src="https://user-images.githubusercontent.com/129557979/229248754-7627607f-5c34-406c-8cd1-ee1dee861787.png">
 
@@ -151,6 +163,8 @@ SELECT
 FROM Catering;
 
 <img width="294" alt="Q7" src="https://user-images.githubusercontent.com/129557979/229248759-17ceb9f4-c234-4967-b500-bc0e91fb5f51.png">
+CALL TP_Q7;
+
 
 # Query 8
 #This query is used to figure out which menu items are ordered the most. It is useful to know this first of all to know the popularity of each item but also for the sake of recommendations. We can tell the customers which items are the most popular. We did this by putting the quantity ordered by each person over the total count of all of the quantities ordered.
@@ -160,8 +174,11 @@ SELECT menuItemName, CONCAT(ROUND(100*(orderQuantity)/(SELECT COUNT(orderQuantit
 FROM Customers 
 JOIN Orders ON Customers.customerID = Orders.customerID
 JOIN Menu ON Orders.menuID = Menu.menuID;
+CALL TP_Q8;
+
 
 <img width="296" alt="Q8" src="https://user-images.githubusercontent.com/129557979/229248772-721cabe4-e5f8-4dc2-af87-1b9448c3eb22.png">
+
 
 # Query 9
 #This query is useful because it allows the manager to see how many reservations we had on a specific day, who it is for, and where they are sitting. By knowing this we can prepare for what we think the specific amount of guests we will have, how we could contact them if we need to, and information we could possibly need to give them such as what table they will be seated at. We did this by listing out the customer name, customer phone, number of guests on the reservations, and tableID. We then had to join customers, reservations, and tables together and say the specific date we were looking for.
@@ -172,6 +189,8 @@ FROM Customers
 JOIN Reservations ON Reservations.customerID = Customers.customerID
 JOIN Tables ON Reservations.reservationID = Tables.reservationID
 WHERE resDate = '2022-07-10';
+CALL TP_Q9;
+
 
 <img width="290" alt="Q9" src="https://user-images.githubusercontent.com/129557979/229248786-3fb03ad3-0934-4f80-a179-88d1023008e2.png">
 
@@ -185,6 +204,8 @@ COUNT(CASE WHEN employeeTitle REGEXP("Waiter") THEN employeeTitle END) AS "Waite
 COUNT(CASE WHEN employeeTitle REGEXP("Host") THEN employeeTitle END) AS "Host",
 COUNT(CASE WHEN employeeTitle NOT REGEXP("Chef|Waiter|Host") THEN employeeTitle END) AS "Unknown"
 FROM Employees;
+CALL TP_Q10;
+
 
 <img width="263" alt="Q10" src="https://user-images.githubusercontent.com/129557979/229248791-d29fb746-5d16-4fd4-8c2f-9dc438cdc590.png">
 
