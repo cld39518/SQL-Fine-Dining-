@@ -130,6 +130,117 @@ COUNT(CASE WHEN employeeTitle REGEXP("Host") THEN employeeTitle END) AS "Host",
 COUNT(CASE WHEN employeeTitle NOT REGEXP("Chef|Waiter|Host") THEN employeeTitle END) AS "Unknown"
 FROM Employees;
 
+# Total Database Code
+
+USE ns_21482_5;
+
+
+
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('90895', 'Merrielle Mucci', '899-598-0268', '5048377171302941', '76005', NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('86256', 'Laney Ashenhurst', '320-430-9877', '5108756335734239', '41699', NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('84418', 'Georgie Gorick', '815-487-8704', '5048376972509050', '69636', NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('76111', 'Maggie Pogg', '119-351-0981', '5048373079848945', '42057', NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('64598', 'Carmelle Pietrasik', '599-369-1210', '5108751100581303', '34694', NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID,cateringID, eventID) values ('40889', 'Haskell Scheu', '986-409-8349', '5108758330119440', '16548', NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('22823', 'Maddie Solano', '703-213-0087', '5048370190420752', NULL, '12374', NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('59997', 'Trude Gidman', '508-514-7047', '5048377146810747', NULL, '37917', NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('37725', 'Amalle Jain', '847-993-3985', '5048376854429625', NULL, '30700', NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('00053', 'Dani Bale', '252-384-0341', '5108755941397654', NULL, '94656', NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('57158', 'Fredericka Horning', '687-990-0108', '5048376437087858', NULL, '42154', NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('97796', 'Rose Mallindine', '339-404-1902', '5048372630415889', NULL, '46785', NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('89445', 'Anestassia Gregh', '661-204-4381', '5108750825853559', NULL, NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('19701', 'Florrie Hise', '796-971-3625', '5108754441638261', NULL, NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('84757', 'Shanon Osmond', '599-954-0498', '5108754713761874',NULL, NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('52727', 'Barb Oliveto', '417-545-8660', '5108752883884534', NULL, NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('09940', 'Avril Suttie', '324-170-5944', '5108751283513305', NULL, NULL, NULL);
+insert into Customers (customerID, customerName, customerPhone, customerPaymentInfo, restaurantID, cateringID, eventID) values ('91039', 'Maggi Zannetti', '981-417-2346', '5048372473991236', NULL, NULL, NULL);
+
+
+
+insert into Catering (cateringID, cateringLocation, cateringSpecialRequirements, cateringPrice) values ('12374', '4 Westport Plaza', 'Kosher', '4500');
+insert into Catering (cateringID, cateringLocation, cateringSpecialRequirements, cateringPrice) values ('37917', '380 Sauthoff Parkway', 'Vegetarian', '5250');
+insert into Catering (cateringID, cateringLocation, cateringSpecialRequirements, cateringPrice) values ('30700', '9 Hazelcrest Drive', 'Vegan', '5100');
+insert into Catering (cateringID, cateringLocation, cateringSpecialRequirements, cateringPrice) values ('94656', '57 Merry Court', 'Gluten Free', '5750');
+insert into Catering (cateringID, cateringLocation, cateringSpecialRequirements, cateringPrice) values ('42154', '1450 Helena Park', 'Peanut Free', '4250');
+insert into Catering (cateringID, cateringLocation, cateringSpecialRequirements, cateringPrice) values ('46785', '7 Northfield Point', 'Gluten Free', '4750');
+
+
+insert into Reservations (reservationID, customerID, resDate, resNumOfGuests) values ('13488', '22823', '2023-02-13', 4);
+insert into Reservations (reservationID, customerID, resDate, resNumOfGuests) values ('62177', '59997', '2022-08-07', 3);
+insert into Reservations (reservationID, customerID, resDate, resNumOfGuests) values ('80850', '37725', '2022-12-23', 3);
+insert into Reservations (reservationID, customerID, resDate, resNumOfGuests) values ('79981', '00053', '2022-07-10', 8);
+insert into Reservations (reservationID, customerID, resDate, resNumOfGuests) values ('27135', '57158', '2022-05-06', 5);
+insert into Reservations (reservationID, customerID, resDate, resNumOfGuests) values ('04676', '97796', '2022-04-09', 6);
+
+
+
+insert into Tables (tableID, reservationID, tableNumber, tableSeatCapacity, tableStatus) values ('94855', '13488', 1, 6, true);
+insert into Tables (tableID,  reservationID, tableNumber, tableSeatCapacity, tableStatus) values ('68404', '62177', 2, 10, false);
+insert into Tables (tableID,  reservationID, tableNumber, tableSeatCapacity, tableStatus) values ('70859', '80850', 3, 8, false);
+insert into Tables (tableID,  reservationID, tableNumber, tableSeatCapacity, tableStatus) values ('79985', '79981', 4, 4, false);
+insert into Tables (tableID,  reservationID, tableNumber, tableSeatCapacity, tableStatus) values ('81221', '27135', 5, 5, true);
+insert into Tables (tableID, reservationID, tableNumber, tableSeatCapacity, tableStatus) values ('82800', '04676', 6, 6, true);
+
+
+
+
+insert into Orders (orderID, orderQuantity, orderItem, customerID, menuID) values ('82333', 1, 'Lamb Chops', '22823', '1234');
+insert into Orders (orderID, orderQuantity, orderItem, customerID, menuID) values ('10491', 2, 'Filet Mignon','59997', '1235');
+insert into Orders (orderID, orderQuantity, orderItem, customerID, menuID) values ('20635', 3, 'Herb-Grilled Chicken', '37725', '1236');
+insert into Orders (orderID, orderQuantity, orderItem, customerID, menuID) values ('68706', 1, 'Prime Rib', '00053', '1237');
+insert into Orders (orderID, orderQuantity, orderItem, customerID, menuID) values ('61647', 2, 'Stuffed Lobster', '57158', '1238');
+insert into Orders (orderID, orderQuantity, orderItem, customerID, menuID) values ('20739', 1, 'Roast duck', '97796', '1239');
+
+
+
+
+
+
+insert into Restaurant (rId, rName, rAddress, rPhoneNumber, rWebsite) values ('76005', 1, '921 Grayhawk Parkway', '579-895-7179', 'http://dummyimage.com');
+insert into Restaurant (rId, rName, rAddress, rPhoneNumber, rWebsite) values ('41699', 2, '4447 Granby Crossing', '429-924-1808', 'http://dummyimage.com');
+insert into Restaurant (rId, rName, rAddress, rPhoneNumber, rWebsite) values ('69636', 3, '0009 Everett Way', '208-994-0177', 'http://dummyimage.com');
+insert into Restaurant (rId, rName, rAddress, rPhoneNumber, rWebsite) values ('42057', 4, '449 Evergreen Place', '818-708-1852', 'http://dummyimage');
+insert into Restaurant (rId, rName, rAddress, rPhoneNumber, rWebsite) values ('34694', 5, '0 Derek Drive', '797-956-9598', 'http://dummyimage.com');
+insert into Restaurant (rID, rName, rAddress, rPhoneNumber, rWebsite) values ('16548', 6, '2050 Melody Junction', '306-302-9411', 'http://dummyimage.com');
+
+
+
+
+insert into Menu (menuID, menuItemName, menuDescription, menuIngredients, menuPrice) values ('1234', 'Lamb Chops', 'tender loin chops', 'garlic, olive oil, red pepper, lamb', 122);
+insert into Menu (menuID, menuItemName, menuDescription, menuIngredients, menuPrice) values ('1235', 'Filet Mignon', 'pork tenderloin', 'rosemary, butter, garlic', 167);
+insert into Menu (menuID, menuItemName, menuDescription, menuIngredients, menuPrice) values ('1236', 'Herb-Grilled Chicken', 'chicken grilled with herbs', 'olive oil, garlic, chicken, lemon', 77);
+insert into Menu (menuID, menuItemName, menuDescription, menuIngredients, menuPrice) values ('1237', 'Prime Rib', 'standing rib roast', 'rib roast, black pepper', 140);
+insert into Menu (menuID, menuItemName, menuDescription, menuIngredients, menuPrice) values ('1238', 'Stuffed Lobster', 'lobster tails', 'lemon juice, garlic, crab meat,', 190);
+insert into Menu (menuID, menuItemName, menuDescription, menuIngredients, menuPrice) values ('1239', 'Roast duck', 'duck roast', 'soy sauce, black pepper, pekin duck', 173);
+
+
+
+
+insert into Employees (employeeId, rID, orderID, tableID, employeeName, employeePhone, employeeTitle, employeeSchedule, employeeSalary) values ('83071', '76005', '82333', '94855', 'Erinn Gadman', '318-833-7478', 'Chef', 'Afternoon', '126325.25');
+insert into Employees (employeeId, rID, orderID, tableID, employeeName, employeePhone, employeeTitle, employeeSchedule, employeeSalary) values ('02784', '41699', '10491', '68404', 'Celine Kingston', '640-242-1956', 'Chef', 'Evening', '$32112.95');
+insert into Employees (employeeId, rID, orderID, tableID, employeeName, employeePhone, employeeTitle, employeeSchedule, employeeSalary) values ('76072', '69636', '20635', '70859', 'Egbert Onthank', '875-373-5916', 'Waiter', 'Morning', '$52900.61');
+insert into Employees (employeeId, rID, orderID, tableID, employeeName, employeePhone, employeeTitle, employeeSchedule, employeeSalary) values ('18881', '42057', '68706', '79985', 'Mitchell Teck', '357-794-8169', 'Waiter', 'Afternoon', '$79981.16');
+insert into Employees (employeeId, rID, orderID, tableID, employeeName, employeePhone, employeeTitle, employeeSchedule, employeeSalary) values ('76220', '34694', '61647', '81221', 'Brnaba Issett', '531-421-2692', 'Host', 'Afternoon', '$22132.06');
+insert into Employees (employeeId, rID, orderID, tableID, employeeName, employeePhone, employeeTitle, employeeSchedule, employeeSalary) values ('68777', '16548', '20739', '82800', 'Moishe Mollin', '821-355-6392', 'Host', 'Morning', '$24357.92');
+
+
+
+insert into CateringMenu (cmID, orderID, cateringID, cmItemName, cmItemDescription, cmIngredients) values ('9876', '82333', '12374', 'steak', 'tender', 'garlic');
+insert into CateringMenu (cmID, orderID, cateringID, cmItemName, cmItemDescription, cmIngredients) values ('9875', '10491', '37917', 'broccoli' , 'steamed', 'butter');
+insert into CateringMenu (cmID, orderID, cateringID, cmItemName, cmItemDescription, cmIngredients) values ('9874', '20635', '30700', 'potatoes', ' sweet', 'basil');
+insert into CateringMenu (cmID, orderID, cateringID, cmItemName, cmItemDescription, cmIngredients) values ('9873', '68706', '94656', 'salmon', ' honey-glazed', 'mushroom’');
+insert into CateringMenu (cmID, orderID, cateringID, cmItemName, cmItemDescription, cmIngredients) values ('9872', '61647', '42154', 'fettuccine alfredo', 'creamy', 'beef');
+insert into CateringMenu (cmID, orderID, cateringID, cmItemName, cmItemDescription, cmIngredients) values ('9871', '20739', '46785', 'chicken marsala', ' flavorful', 'pepper');
+
+
+Insert into Events (eventID, eventName, eventDate, eventType) values ('11111', 'Laugh Riot',2022-06-09, 'comedy');
+Insert into Events (eventID, eventName,eventDate, eventType) values ('22222', 'Swinging Soiree',2023-03-06, 'jazzband');
+Insert into Events (eventID, eventName, eventDate, eventType) values ('33333',  'Harmony Fest',2022-04-09, 'concert' );
+Insert into Events (eventID, eventName, eventDate, eventType) values ('44444', 'Ivory Keys' ,2022-09-21, 'pianist');
+Insert into Events (eventID, eventName, eventDate, eventType) values ('55555', 'Community Connect', 2022-05-06, 'social');
+Insert into Events (eventID, eventName, eventDate, eventType) values ('66666' , 'Starry Night' , 2022-04-23, 'gala' );
+
+
 
 
 
