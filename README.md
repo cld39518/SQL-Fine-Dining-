@@ -73,6 +73,7 @@ ORDER BY SUM(menuPrice*orderQuantity) DESC;
 
 # Query 7
 #This query shows how many of each customer who catered had special requirements, and what those requirements were. This allows us to know what meals we should be ready to make in the future. Not all customers will necessarily have what we are serving and we need to be prepared to serve their needs. We were able to do this by using case when and regular expression statements.
+
 SELECT 
 	COUNT(CASE WHEN cateringSpecialRequirements REGEXP("Peanut Free") THEN cateringSpecialRequirements END) AS "Allergic", 
     COUNT(CASE WHEN cateringSpecialRequirements REGEXP("Gluten Free") THEN cateringSpecialRequirements END) AS "Allergic", 
@@ -84,6 +85,7 @@ FROM Catering;
 
 # Query 8
 #This query is used to figure out which menu items are ordered the most. It is useful to know this first of all to know the popularity of each item but also for the sake of recommendations. We can tell the customers which items are the most popular. We did this by putting the quantity ordered by each person over the total count of all of the quantities ordered.
+
 SELECT menuItemName, CONCAT(ROUND(100*(orderQuantity)/(SELECT COUNT(orderQuantity) FROM Orders),2),("%")) AS 'Percent Ordered'
 FROM Customers 
 JOIN Orders ON Customers.customerID = Orders.customerID
