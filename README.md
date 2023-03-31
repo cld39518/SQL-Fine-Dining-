@@ -118,6 +118,18 @@ JOIN Reservations ON Reservations.customerID = Customers.customerID
 JOIN Tables ON Reservations.reservationID = Tables.reservationID
 WHERE resDate = '2022-07-10';
 
+# Query 10
+#This query allows us to figure out how many employees we have in each position. By knowing this we can figure out how well we operate with a specific amount of employees. If we are not operating as well as we should and see that one group does not have enough employees and hire more. We did this by using case when statements for each of the different employee types.
+
+SELECT 
+COUNT(CASE WHEN employeeTitle REGEXP("Chef") THEN employeeTitle END) AS "Chef", 
+COUNT(CASE WHEN employeeTitle REGEXP("Waiter") THEN employeeTitle END) AS "Waiter", 
+COUNT(CASE WHEN employeeTitle REGEXP("Host") THEN employeeTitle END) AS "Host",
+COUNT(CASE WHEN employeeTitle NOT REGEXP("Chef|Waiter|Host") THEN employeeTitle END) AS "Unknown"
+FROM Employees;
+
+
+
 
 
 
