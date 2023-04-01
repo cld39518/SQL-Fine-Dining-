@@ -3,7 +3,7 @@ SQL fine dining database project
 
 # Members
 
-Christian Myrie
+Christian Myrie https://github.com/crm50057/Restauraunt
 
 Ben Satinoff https://github.com/bss63709/SQL-Fine-Dining-/blob/main/README.md
 
