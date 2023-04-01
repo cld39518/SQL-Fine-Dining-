@@ -51,9 +51,7 @@ There is a many to many relationship between menu and customers forming a one to
 # Orders: 
 Orders has a many-to-many relationship with catering, forming the CateringMenu associated entity. It is also the associated entity between customer and menu. Customers can order as many menu items and as many times as they please.
 
-<img width="368" alt="D7" src="https://user-images.githubusercontent.com/129557979/229250043-d0ab376e-8261-4ce0-895f-5b7135a6dd7c.png">
-
-
+<img width="660" alt="Screenshot 2023-03-31 at 9 27 26 PM" src="https://user-images.githubusercontent.com/129543675/229259211-43f6807a-5afc-4931-9466-adc09cf2b8bf.png">
 
 # Reservations:
 Customers have a one to many relationship with reservations, additionally reservations have a one to many with tables. One reservation is required for a group containing many customers such as a family or a company social event. Also, one table will be the home of a night of memories to several reservations because there are multiple time windows that a reservation can be created for a specific table. 
