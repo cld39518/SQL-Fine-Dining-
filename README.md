@@ -1,7 +1,7 @@
 # SQL Fine Dining Project
 SQL fine dining database project
 
-# Members
+# Members (Group 21482)
 
 Christian Myrie https://github.com/crm50057/Restauraunt
 
