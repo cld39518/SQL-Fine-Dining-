@@ -69,6 +69,7 @@ Tables has a many-to-many with Restaurants, forming the Employees associated ent
 
 <img width="331" alt="D10" src="https://user-images.githubusercontent.com/129557979/229250063-d3e8c570-f56c-4ad7-866c-fa1f1a7a1a26.png">
 
+<img width="1033" alt="Screenshot 2023-03-31 at 6 44 03 PM" src="https://user-images.githubusercontent.com/129543675/229258222-8559fc16-959f-4cf7-abe2-b35426453858.png">
 
 # Query 1
 #This query is used to determine the bill total for a particular guess. The manager could use this query to find out how much certain guests are willing to spend when they come to the restaurant
