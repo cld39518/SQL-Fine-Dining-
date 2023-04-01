@@ -21,6 +21,10 @@ There is the associate entity between orders and catering, birthing Catering Men
 
 <img width="377" alt="D2" src="https://user-images.githubusercontent.com/129557979/229249901-4e1de310-ffd6-4ec8-a329-6737efd84adb.png">
 
+# Customers:
+Customers has a one to many relationship with Reservations and Orders. A particular customer can make many reservations and can order as much food an drink as they please. Restaurant has a one-to-many relationship with Customers as many customers can go to only one restaurant due to region constraints. Similarly, Events and Catering have one-to-many relationships with Customers as events and catering events are both one-time, unique occasions with many guests. 
+
+<img width="644" alt="Screenshot 2023-03-31 at 9 25 12 PM" src="https://user-images.githubusercontent.com/129543675/229259092-271f787b-4257-481d-9b9f-86d6350778c0.png">
 
 # Employees:
 There is a one to many relationship between Restaurants and Employees as stated above. There is a one to many relationship between orders and employees. One order is handled by many employees, such as the waiter/waitress, the chef, and the host/hostess.
